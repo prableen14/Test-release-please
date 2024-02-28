@@ -1,0 +1,18 @@
+name: Release Please Workflow
+
+on:
+  push:
+    branches:
+      - main  # Or your default branch, e.g., 'master'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Release Please
+        uses: google-github-actions/release-please-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
