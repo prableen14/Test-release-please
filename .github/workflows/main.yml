@@ -3,7 +3,7 @@ name: Release Please Workflow
 on:
   push:
     branches:
-      - main  # Or your default branch, e.g., 'master'
+      - main
 
 jobs:
   release:
@@ -12,8 +12,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Specify the Node.js version here
+
       - name: Release Please
         uses: google-github-actions/release-please-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # `release-type` will default to 'node' for JavaScript projects
