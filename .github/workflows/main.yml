@@ -16,3 +16,4 @@ jobs:
         uses: google-github-actions/release-please-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          # `release-type` will default to 'node' for JavaScript projects
